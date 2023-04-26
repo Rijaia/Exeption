@@ -3,7 +3,15 @@ public class Main {
         String login= "login";
         String password = "password";
         String confirmPassword = "password";
+        try {
+            Validate.validate(login, password, confirmPassword);
+        } catch (WrongLoginException | WrongPasswordException exception) {
+            System.out.println("Поймали ошибку");
+            exception.printStackTrace();
+        } finally {
+            System.out.println("Работает блок finally");
+        }
 
-        Validate.validate(login, password, confirmPassword);
+
     }
 }
